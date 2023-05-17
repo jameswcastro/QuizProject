@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <style>
+      html, body {
+      position: relative;
+      display: flex;
+      margin: auto;
+      width: 50%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 0;
+      text-align:center;
+      }
+      canvas {
+        display: flex;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+    <h1>
+      Question 1:
+    </h1>
+  </head>
+  <body>
+    <h2>
+      Are you a casual or competitive gamer?
+    </h2> 
+    <main>
+    </main>
+    <script>
+      
+let slider;
+let binaryValues = [];
+
+function preload(){
+image1 = loadImage("Controllers.png");
+}    
+      
+function setup() {
+  createCanvas(400, 400, windowWidth/2,windowHeight/2);
+  slider = createSlider(0,1,0);
+  textAlign(CENTER);
+  //submitBtn = createButton("Next");
+}
+
+function draw() {
+  background(220);
+  //on button click record
+  //slider.value();
+  print(slider.value());
+  sliderDisplay = map(slider.value(),0,1,-0.5,0.5);
+  image(image1,0,0);
+  fill(255,255,255,50);
+  noStroke();
+  translate(200,0);
+  rect(0,0,width*sliderDisplay,height,5);
+  
+  
+  submitBtn.addEventListener("click", function() {
+  //selectedOption = parseInt(slider.value());
+  binaryValues.push(value);
+  //localStorage.setItem("selectedOption", selectedOption);
+  window.location.href = "q2.html";
+});
+  
+  let value = slider.value();
+    binaryValues.push(value);
+
+  console.log(binaryValues);
+//  selectedOption = parseInt(localStorage.getItem("selectedOption"));
+
+// if (selectedOption === 0) {
+//   console.log("0");
+//   // Option A was selected
+//   // Perform actions for option A
+// } else if (selectedOption === 1) {
+//   console.log("1");
+//   // Option B was selected
+//   // Perform actions for option B
+// } else {
+//   // No option was selected yet
+// }
+}
+    </script>
+    <br>
+  <button id="submitBtn">Next</button>
+    <br>
+<script>
+
+</script>
+<!--     <a href = "q2.html">Next</a> -->
+  </body>
+</html>
